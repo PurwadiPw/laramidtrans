@@ -63,6 +63,12 @@ class Midtrans implements MidtransFactory
         return self::clientRequest($endpoint, 'POST', $body)->token;
     }
 
+    public static function charge($body)
+    {
+        $endpoint = self::baseUrl().'charge';
+        return self::clientRequest($endpoint, 'POST', $body);
+    }
+
     public static function status($order_id)
     {
         $endpoint = self::baseUrl() . $order_id . '/status';
